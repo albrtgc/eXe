@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>4.1 Fundamentos y creación de bases de datos | MySQL paso a paso: fundamentos, consultas y relaciones </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="author" content="Alberto Canca" />
+<link rel="license" type="text/html" href="http://creativecommons.org/licenses/by-sa/4.0/" />
+<meta name="generator" content="eXeLearning 2.9 - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="exe-web-site" id="exe-node-22"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">MySQL paso a paso: fundamentos, consultas y relaciones</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">MySQL paso a paso: fundamentos, consultas y relaciones</a></li>
+   <li><a href="1_introduccin_docente_y_gua_del_rea.html" class="daddy">1. Introducción docente y guía del REA</a>
+   <ul class="other-section">
+      <li><a href="11_objetivos_didcticos_y_competencias.html" class="no-ch">1.1 Objetivos didácticos y competencias</a></li>
+      <li><a href="12_resultados_de_aprendizaje_y_criterios_de_evaluacin.html" class="no-ch">1.2 Resultados de aprendizaje y criterios de evaluación</a></li>
+      <li><a href="14_metodologa_y_temporalizacin.html" class="no-ch">1.4 Metodología y temporalización</a></li>
+      <li><a href="14_instrumentos_de_evaluacin_y_rbricas.html" class="no-ch">1.4 Instrumentos de evaluación y rúbricas</a></li>
+      <li><a href="15_accesibilidad_y_licencias.html" class="no-ch">1.5 Accesibilidad y licencias</a></li>
+   </ul>
+   </li>
+   <li><a href="2_bienvenida_al_entorno_mysql.html" class="daddy">2. Bienvenida al entorno MySQL</a>
+   <ul class="other-section">
+      <li><a href="21_qu_es_un_sgbd_relacional.html" class="no-ch">2.1 ¿Qué es un SGBD relacional?</a></li>
+      <li><a href="22_mysql_en_el_ecosistema_lamp.html" class="no-ch">2.2 MySQL en el ecosistema LAMP</a></li>
+      <li><a href="23_mysql_vs_mariadb_vs_postgresql.html" class="no-ch">2.3 MySQL vs MariaDB vs PostgreSQL</a></li>
+      <li><a href="24_arquitectura_servidorcliente.html" class="no-ch">2.4 Arquitectura servidor–cliente</a></li>
+      <li><a href="25_actividades_interactivas.html" class="no-ch">2.5 Actividades interactivas</a></li>
+   </ul>
+   </li>
+   <li><a href="3_instalacin_y_acceso_a_mysql.html" class="daddy">3. Instalación y acceso a MySQL</a>
+   <ul class="other-section">
+      <li><a href="31_instalacin_mediante_xampp__docker.html" class="no-ch">3.1 Instalación mediante XAMPP / Docker</a></li>
+      <li><a href="32_acceso_mediante_terminal_cli_y_gui.html" class="no-ch">3.2 Acceso mediante terminal (CLI) y GUI</a></li>
+      <li><a href="33_creacin_de_usuarios_y_gestin_de_privilegios.html" class="no-ch">3.3 Creación de usuarios y gestión de privilegios</a></li>
+      <li><a href="34_actividades_prcticas_y_autoevaluacin.html" class="no-ch">3.4 Actividades prácticas y autoevaluación</a></li>
+   </ul>
+   </li>
+   <li class="current-page-parent"><a href="4_creacin_y_gestin_de_bases_de_datos.html" class="current-page-parent daddy">4. Creación y gestión de bases de datos</a>
+   <ul>
+      <li id="active"><a href="41_fundamentos_y_creacin_de_bases_de_datos.html" class="active no-ch">4.1 Fundamentos y creación de bases de datos</a></li>
+      <li><a href="42_normalizacin_restricciones_y_actividades_prcticas.html" class="no-ch">4.2 Normalización, restricciones y actividades prácticas</a></li>
+   </ul>
+   </li>
+   <li><a href="5_consultas_bsicas_en_mysql.html" class="no-ch">5. Consultas básicas en MySQL</a></li>
+   <li><a href="6_relaciones_y_claves_forneas.html" class="no-ch">6. Relaciones y claves foráneas</a></li>
+   <li><a href="7_evaluacin_final_y_proyecto_integrador.html" class="no-ch">7. Evaluación final y proyecto integrador</a></li>
+   <li><a href="8_autora_y_licencia.html" class="no-ch">8. Autoría y Licencia</a></li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="4_creacin_y_gestin_de_bases_de_datos.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="42_normalizacin_restricciones_y_actividades_prcticas.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">4.1 Fundamentos y creación de bases de datos</h1></header>
+<article class="iDevice_wrapper textIdevice" id="id22">
+<div class="iDevice emphasis0" >
+<div id="ta22_149_2" class="block iDevice_content">
+<div class="exe-text"><p><span style="font-size: 1.05em;">En este bloque comenzarás a trabajar directamente con MySQL, aprendiendo a </span><strong style="font-size: 1.05em;">crear bases de datos, tablas y registros</strong><span style="font-size: 1.05em;"> mediante instrucciones SQL. Es el primer paso para construir un modelo de datos completo y coherente.</span></p>
+<section>
+<h2>Conceptos clave</h2>
+<ul>
+<li><strong>Base de datos (BD):</strong> conjunto estructurado de información almacenada de forma organizada.</li>
+<li><strong>Tabla:</strong> estructura que almacena registros con campos o columnas definidas.</li>
+<li><strong>Registro:</strong> fila dentro de una tabla, representa una instancia concreta.</li>
+<li><strong>Campo:</strong> columna de una tabla que contiene un tipo de dato específico.</li>
+<li><strong>Clave primaria (PK):</strong> identifica de forma única cada registro de una tabla.</li>
+</ul>
+<h2>Creación de una base de datos</h2>
+<p>Para crear una base de datos en MySQL se utiliza la instrucción <code>CREATE DATABASE</code>:</p>
+<pre><code>CREATE DATABASE tienda
+CHARACTER SET utf8mb4
+COLLATE utf8mb4_general_ci;
+</code></pre>
+<p>La codificación <code>utf8mb4</code> garantiza compatibilidad con caracteres multilingües y emojis.</p>
+<h2>Selección y uso de una base de datos</h2>
+<pre><code>USE tienda;
+</code></pre>
+<p>Este comando establece la base de datos activa para las operaciones siguientes.</p>
+<h2>Creación de tablas</h2>
+<pre><code>CREATE TABLE productos (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(100) NOT NULL,
+  precio DECIMAL(10,2) NOT NULL DEFAULT 0.00,
+  stock INT NOT NULL DEFAULT 0,
+  fecha_alta DATE
+);
+</code></pre>
+<p>Las cláusulas <code>NOT NULL</code> y <code>DEFAULT</code> establecen restricciones para garantizar la validez de los datos. <code>AUTO_INCREMENT</code> genera automáticamente valores consecutivos para la columna <em>id</em>.</p>
+<h2>Modificación de tablas</h2>
+<pre><code>ALTER TABLE productos
+ADD COLUMN descripcion TEXT AFTER nombre;
+</code></pre>
+<p>También puedes eliminar una columna:</p>
+<pre><code>ALTER TABLE productos DROP COLUMN descripcion;
+</code></pre>
+<h2>Inserción de datos</h2>
+<pre><code>INSERT INTO productos (nombre, precio, stock, fecha_alta)
+VALUES ('Teclado mecánico', 79.95, 10, '2024-01-10'),
+       ('Ratón inalámbrico', 24.50, 25, '2024-01-11');
+</code></pre>
+<p>Para visualizar los registros insertados:</p>
+<pre><code>SELECT * FROM productos;</code></pre>
+<h2>Eliminación de registros</h2>
+<pre><code>DELETE FROM productos WHERE id = 2;</code></pre>
+<h2>Actividad práctica guiada</h2>
+<ol>
+<li>Crea una base de datos llamada <code>empresa</code>.</li>
+<li>Dentro de ella, crea una tabla <code>empleados</code> con campos: id, nombre, puesto, salario y fecha_alta.</li>
+<li>Inserta tres registros de ejemplo.</li>
+<li>Realiza una consulta que muestre solo los empleados cuyo salario supere los 1500 €.</li>
+</ol>
+<div style="background: #e8f5e9; border-left: 4px solid #43a047; padding: 1rem; margin-top: 1rem;">
+<p><strong>Reflexión:</strong> ¿Por qué crees que es importante definir tipos de datos correctos desde el inicio del diseño de una base de datos?</p>
+</div>
+</section></div>
+</div>
+</div>
+</article>
+<div id="packageLicense" class="cc cc-by-sa">
+<p><span>Obra publicada con</span> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Licencia Creative Commons Reconocimiento Compartir igual 4.0</a></p>
+</div>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="4_creacin_y_gestin_de_bases_de_datos.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="42_normalizacin_restricciones_y_actividades_prcticas.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<p id="made-with-eXe"><a href="https://exelearning.net/" target="_blank" rel="noopener"><span>Creado con eXeLearning<span> (Ventana nueva)</span></span></a></p><script type="text/javascript" src="_intef_js.js"></script></body></html>

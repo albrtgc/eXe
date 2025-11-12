@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>3. Instalación y acceso a MySQL | MySQL paso a paso: fundamentos, consultas y relaciones </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="author" content="Alberto Canca" />
+<link rel="license" type="text/html" href="http://creativecommons.org/licenses/by-sa/4.0/" />
+<meta name="generator" content="eXeLearning 2.9 - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="exe-web-site" id="exe-node-15"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">MySQL paso a paso: fundamentos, consultas y relaciones</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">MySQL paso a paso: fundamentos, consultas y relaciones</a></li>
+   <li><a href="1_introduccin_docente_y_gua_del_rea.html" class="daddy">1. Introducción docente y guía del REA</a>
+   <ul class="other-section">
+      <li><a href="11_objetivos_didcticos_y_competencias.html" class="no-ch">1.1 Objetivos didácticos y competencias</a></li>
+      <li><a href="12_resultados_de_aprendizaje_y_criterios_de_evaluacin.html" class="no-ch">1.2 Resultados de aprendizaje y criterios de evaluación</a></li>
+      <li><a href="14_metodologa_y_temporalizacin.html" class="no-ch">1.4 Metodología y temporalización</a></li>
+      <li><a href="14_instrumentos_de_evaluacin_y_rbricas.html" class="no-ch">1.4 Instrumentos de evaluación y rúbricas</a></li>
+      <li><a href="15_accesibilidad_y_licencias.html" class="no-ch">1.5 Accesibilidad y licencias</a></li>
+   </ul>
+   </li>
+   <li><a href="2_bienvenida_al_entorno_mysql.html" class="daddy">2. Bienvenida al entorno MySQL</a>
+   <ul class="other-section">
+      <li><a href="21_qu_es_un_sgbd_relacional.html" class="no-ch">2.1 ¿Qué es un SGBD relacional?</a></li>
+      <li><a href="22_mysql_en_el_ecosistema_lamp.html" class="no-ch">2.2 MySQL en el ecosistema LAMP</a></li>
+      <li><a href="23_mysql_vs_mariadb_vs_postgresql.html" class="no-ch">2.3 MySQL vs MariaDB vs PostgreSQL</a></li>
+      <li><a href="24_arquitectura_servidorcliente.html" class="no-ch">2.4 Arquitectura servidor–cliente</a></li>
+      <li><a href="25_actividades_interactivas.html" class="no-ch">2.5 Actividades interactivas</a></li>
+   </ul>
+   </li>
+   <li id="active"><a href="3_instalacin_y_acceso_a_mysql.html" class="active daddy">3. Instalación y acceso a MySQL</a>
+   <ul>
+      <li><a href="31_instalacin_mediante_xampp__docker.html" class="no-ch">3.1 Instalación mediante XAMPP / Docker</a></li>
+      <li><a href="32_acceso_mediante_terminal_cli_y_gui.html" class="no-ch">3.2 Acceso mediante terminal (CLI) y GUI</a></li>
+      <li><a href="33_creacin_de_usuarios_y_gestin_de_privilegios.html" class="no-ch">3.3 Creación de usuarios y gestión de privilegios</a></li>
+      <li><a href="34_actividades_prcticas_y_autoevaluacin.html" class="no-ch">3.4 Actividades prácticas y autoevaluación</a></li>
+   </ul>
+   </li>
+   <li><a href="4_creacin_y_gestin_de_bases_de_datos.html" class="daddy">4. Creación y gestión de bases de datos</a>
+   <ul class="other-section">
+      <li><a href="41_fundamentos_y_creacin_de_bases_de_datos.html" class="no-ch">4.1 Fundamentos y creación de bases de datos</a></li>
+      <li><a href="42_normalizacin_restricciones_y_actividades_prcticas.html" class="no-ch">4.2 Normalización, restricciones y actividades prácticas</a></li>
+   </ul>
+   </li>
+   <li><a href="5_consultas_bsicas_en_mysql.html" class="no-ch">5. Consultas básicas en MySQL</a></li>
+   <li><a href="6_relaciones_y_claves_forneas.html" class="no-ch">6. Relaciones y claves foráneas</a></li>
+   <li><a href="7_evaluacin_final_y_proyecto_integrador.html" class="no-ch">7. Evaluación final y proyecto integrador</a></li>
+   <li><a href="8_autora_y_licencia.html" class="no-ch">8. Autoría y Licencia</a></li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="25_actividades_interactivas.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="31_instalacin_mediante_xampp__docker.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">3. Instalación y acceso a MySQL</h1></header>
+<article class="iDevice_wrapper textIdevice" id="id15">
+<div class="iDevice emphasis0" >
+<div id="ta15_142_2" class="block iDevice_content">
+<div class="exe-text"><p></p>
+<section>
+<h1></h1>
+<p>En esta sección prepararás tu entorno de trabajo con <strong>MySQL</strong> y practicarás el acceso tanto por <strong>línea de comandos (CLI)</strong> como con clientes <strong>gráficos (GUI)</strong>. Verás varias opciones de instalación para que elijas la que mejor encaje con tu equipo y necesidades (XAMPP, Docker o instalación nativa con MySQL Server + Workbench).</p>
+<h2>Objetivos del bloque</h2>
+<ul>
+<li>Instalar y/o levantar un servidor MySQL funcional en local.</li>
+<li>Conectarse al servidor usando CLI (<code>mysql</code>) y GUI (phpMyAdmin o MySQL Workbench).</li>
+<li>Realizar comprobaciones básicas: versión, bases de datos, usuarios y privilegios.</li>
+<li>Aplicar buenas prácticas iniciales de seguridad (usuario de aplicación distinto de <code>root</code>).</li>
+</ul>
+<h2>Prerrequisitos y materiales</h2>
+<ul>
+<li>Sistema operativo Windows, Linux o macOS actualizado.</li>
+<li>Permisos para instalar software o ejecutar contenedores Docker.</li>
+<li>Conexión a internet para descargar los paquetes necesarios.</li>
+</ul>
+<h2>Opciones de instalación (elige una)</h2>
+<ol>
+<li><strong>XAMPP</strong> (rápido y sencillo). Incluye MySQL/MariaDB y <em>phpMyAdmin</em> en un panel único.</li>
+<li><strong>Docker</strong> (reproducible y “limpio”). Levanta MySQL en un contenedor aislado.</li>
+<li><strong>Instalación nativa</strong> (mayor control). MySQL Server + <em>MySQL Workbench</em> como cliente GUI.</li>
+</ol>
+<h2>Pasos resumidos de trabajo</h2>
+<ol>
+<li>Instala/levanta MySQL con XAMPP, Docker o instalación nativa.</li>
+<li>Comprueba la conexión en CLI: <code>mysql -u root -p</code> y ejecuta <code>SELECT VERSION();</code>.</li>
+<li>Conéctate con GUI (phpMyAdmin o Workbench) para verificar host, puerto, usuario y contraseña.</li>
+<li>Crea un <strong>usuario de aplicación</strong> con permisos limitados sobre una base de datos concreta.</li>
+</ol>
+<h2>Ejemplo (Docker Compose)</h2>
+<pre><code>version: "3.9"
+services:
+  db:
+    image: mysql:8.0
+    container_name: mysql_daw
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=demodaw
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./data:/var/lib/mysql
+    restart: unless-stopped
+</code></pre>
+<p><em>Uso:</em> en la carpeta del archivo, ejecuta <code>docker compose up -d</code>. Para parar: <code>docker compose down</code>.</p>
+<h2>Comandos básicos en CLI</h2>
+<pre><code># Conexión
+mysql -u root -p
+
+# Comprobaciones iniciales
+SELECT VERSION();
+SHOW DATABASES;
+
+# Crear BD de pruebas
+CREATE DATABASE demodaw CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE demodaw;
+
+# Crear usuario de aplicación (ejemplo)
+CREATE USER 'appuser'@'%' IDENTIFIED BY 'secreta';
+GRANT ALL PRIVILEGES ON demodaw.* TO 'appuser'@'%';
+FLUSH PRIVILEGES;
+</code></pre>
+<h2>Acceso por GUI</h2>
+<ul>
+<li><strong>phpMyAdmin</strong> (si usas XAMPP): abre <code>http://localhost/phpmyadmin</code> y autentícate.</li>
+<li><strong>MySQL Workbench</strong>: crea una nueva conexión indicando <em>Host</em> (localhost), <em>Port</em> (3306), <em>User</em> (root o appuser) y contraseña.</li>
+</ul>
+<h2>Buenas prácticas iniciales</h2>
+<ul>
+<li>No uses <code>root</code> para aplicaciones; crea un usuario específico con privilegios acotados.</li>
+<li>Trabaja con <code>utf8mb4</code> y una colación moderna (<code>utf8mb4_general_ci</code> o <code>utf8mb4_0900_ai_ci</code> si está disponible).</li>
+<li>Guarda tus scripts SQL en un repositorio (carpeta o Git) para mantener trazabilidad.</li>
+</ul>
+<h2>Problemas comunes y soluciones</h2>
+<ul>
+<li><strong>Puerto 3306 ocupado:</strong> cambia el puerto en la configuración o detén el servicio que lo usa.</li>
+<li><strong>Error de autenticación:</strong> verifica usuario/contraseña y host permitido (<code>'usuario'@'localhost'</code> vs <code>'usuario'@'%'</code>).</li>
+<li><strong>Contenedor no inicia (Docker):</strong> borra el volumen de datos si cambiaste versión mayor, revisa logs con <code>docker logs mysql_daw</code>.</li>
+</ul>
+<div style="background: #f6f8fa; border-left: 4px solid #007acc; padding: 1rem; margin: 1rem 0;">
+<p><strong>Checklist rápido:</strong></p>
+<ul>
+<li>Servidor MySQL en ejecución ✔</li>
+<li>Conexión por CLI y GUI verificada ✔</li>
+<li>BD <code>demodaw</code> creada y en uso ✔</li>
+<li>Usuario <code>appuser</code> con privilegios sobre <code>demodaw</code> ✔</li>
+</ul>
+</div>
+<h2>Actividades sugeridas</h2>
+<ol>
+<li><strong>Instalación evidenciada:</strong> sube capturas de tu servidor en marcha y resultado de <code>SELECT VERSION();</code>.</li>
+<li><strong>Usuario y permisos:</strong> crea <code>appuser</code> y demuestra que puede acceder a <code>demodaw</code> pero no a otras BD.</li>
+</ol>
+<footer style="margin-top: 2rem; border-top: 1px solid #ccc; padding-top: 0.5rem;">
+<p><em>Duración estimada:</em> 1,5–2 horas · <em>Tipo de contenido:</em> Instalación y primeras conexiones · <em>Nivel:</em> Inicial DAW</p>
+</footer></section></div>
+</div>
+</div>
+</article>
+<div id="packageLicense" class="cc cc-by-sa">
+<p><span>Obra publicada con</span> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Licencia Creative Commons Reconocimiento Compartir igual 4.0</a></p>
+</div>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="25_actividades_interactivas.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="31_instalacin_mediante_xampp__docker.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<p id="made-with-eXe"><a href="https://exelearning.net/" target="_blank" rel="noopener"><span>Creado con eXeLearning<span> (Ventana nueva)</span></span></a></p><script type="text/javascript" src="_intef_js.js"></script></body></html>

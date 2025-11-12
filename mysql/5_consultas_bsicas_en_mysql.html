@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>5. Consultas básicas en MySQL | MySQL paso a paso: fundamentos, consultas y relaciones </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="author" content="Alberto Canca" />
+<link rel="license" type="text/html" href="http://creativecommons.org/licenses/by-sa/4.0/" />
+<meta name="generator" content="eXeLearning 2.9 - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="exe-web-site" id="exe-node-24"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">MySQL paso a paso: fundamentos, consultas y relaciones</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">MySQL paso a paso: fundamentos, consultas y relaciones</a></li>
+   <li><a href="1_introduccin_docente_y_gua_del_rea.html" class="daddy">1. Introducción docente y guía del REA</a>
+   <ul class="other-section">
+      <li><a href="11_objetivos_didcticos_y_competencias.html" class="no-ch">1.1 Objetivos didácticos y competencias</a></li>
+      <li><a href="12_resultados_de_aprendizaje_y_criterios_de_evaluacin.html" class="no-ch">1.2 Resultados de aprendizaje y criterios de evaluación</a></li>
+      <li><a href="14_metodologa_y_temporalizacin.html" class="no-ch">1.4 Metodología y temporalización</a></li>
+      <li><a href="14_instrumentos_de_evaluacin_y_rbricas.html" class="no-ch">1.4 Instrumentos de evaluación y rúbricas</a></li>
+      <li><a href="15_accesibilidad_y_licencias.html" class="no-ch">1.5 Accesibilidad y licencias</a></li>
+   </ul>
+   </li>
+   <li><a href="2_bienvenida_al_entorno_mysql.html" class="daddy">2. Bienvenida al entorno MySQL</a>
+   <ul class="other-section">
+      <li><a href="21_qu_es_un_sgbd_relacional.html" class="no-ch">2.1 ¿Qué es un SGBD relacional?</a></li>
+      <li><a href="22_mysql_en_el_ecosistema_lamp.html" class="no-ch">2.2 MySQL en el ecosistema LAMP</a></li>
+      <li><a href="23_mysql_vs_mariadb_vs_postgresql.html" class="no-ch">2.3 MySQL vs MariaDB vs PostgreSQL</a></li>
+      <li><a href="24_arquitectura_servidorcliente.html" class="no-ch">2.4 Arquitectura servidor–cliente</a></li>
+      <li><a href="25_actividades_interactivas.html" class="no-ch">2.5 Actividades interactivas</a></li>
+   </ul>
+   </li>
+   <li><a href="3_instalacin_y_acceso_a_mysql.html" class="daddy">3. Instalación y acceso a MySQL</a>
+   <ul class="other-section">
+      <li><a href="31_instalacin_mediante_xampp__docker.html" class="no-ch">3.1 Instalación mediante XAMPP / Docker</a></li>
+      <li><a href="32_acceso_mediante_terminal_cli_y_gui.html" class="no-ch">3.2 Acceso mediante terminal (CLI) y GUI</a></li>
+      <li><a href="33_creacin_de_usuarios_y_gestin_de_privilegios.html" class="no-ch">3.3 Creación de usuarios y gestión de privilegios</a></li>
+      <li><a href="34_actividades_prcticas_y_autoevaluacin.html" class="no-ch">3.4 Actividades prácticas y autoevaluación</a></li>
+   </ul>
+   </li>
+   <li><a href="4_creacin_y_gestin_de_bases_de_datos.html" class="daddy">4. Creación y gestión de bases de datos</a>
+   <ul class="other-section">
+      <li><a href="41_fundamentos_y_creacin_de_bases_de_datos.html" class="no-ch">4.1 Fundamentos y creación de bases de datos</a></li>
+      <li><a href="42_normalizacin_restricciones_y_actividades_prcticas.html" class="no-ch">4.2 Normalización, restricciones y actividades prácticas</a></li>
+   </ul>
+   </li>
+   <li id="active"><a href="5_consultas_bsicas_en_mysql.html" class="active no-ch">5. Consultas básicas en MySQL</a></li>
+   <li><a href="6_relaciones_y_claves_forneas.html" class="no-ch">6. Relaciones y claves foráneas</a></li>
+   <li><a href="7_evaluacin_final_y_proyecto_integrador.html" class="no-ch">7. Evaluación final y proyecto integrador</a></li>
+   <li><a href="8_autora_y_licencia.html" class="no-ch">8. Autoría y Licencia</a></li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="42_normalizacin_restricciones_y_actividades_prcticas.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="6_relaciones_y_claves_forneas.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">5. Consultas básicas en MySQL</h1></header>
+<article class="iDevice_wrapper textIdevice" id="id25">
+<div class="iDevice emphasis0" >
+<div id="ta25_152_2" class="block iDevice_content">
+<div class="exe-text"><p><span style="font-size: 1.05em;">En esta sección aprenderás a obtener y manipular información almacenada en una base de datos MySQL utilizando el lenguaje </span><strong style="font-size: 1.05em;">SQL (Structured Query Language)</strong><span style="font-size: 1.05em;">. Trabajarás con las instrucciones más comunes de consulta (</span><code>SELECT</code><span style="font-size: 1.05em;">), inserción (</span><code>INSERT</code><span style="font-size: 1.05em;">), actualización (</span><code>UPDATE</code><span style="font-size: 1.05em;">) y eliminación (</span><code>DELETE</code><span style="font-size: 1.05em;">), así como con funciones de agrupación y filtrado.</span></p>
+<section>
+<h2>Objetivos del bloque</h2>
+<ul>
+<li>Aprender a consultar datos mediante <code>SELECT</code> con condiciones, ordenaciones y alias.</li>
+<li>Insertar, actualizar y eliminar registros utilizando instrucciones DML (Data Manipulation Language).</li>
+<li>Aplicar funciones de agregación y agrupar resultados con <code>GROUP BY</code> y <code>HAVING</code>.</li>
+<li>Usar subconsultas para resolver necesidades más complejas.</li>
+</ul>
+<h2>5.1 Instrucción SELECT: extracción de información</h2>
+<p>La sentencia <code>SELECT</code> permite consultar los datos almacenados en las tablas.</p>
+<pre><code>SELECT nombre, precio
+FROM productos;
+</code></pre>
+<p>Para filtrar registros, utiliza <code>WHERE</code>:</p>
+<pre><code>SELECT nombre, precio
+FROM productos
+WHERE precio &gt; 30;
+</code></pre>
+<p>Y para ordenar resultados:</p>
+<pre><code>SELECT nombre, precio
+FROM productos
+ORDER BY precio DESC;
+</code></pre>
+<p>Puedes cambiar el nombre mostrado de una columna usando <code>AS</code>:</p>
+<pre><code>SELECT nombre AS "Producto", precio AS "Precio (€)"
+FROM productos;
+</code></pre>
+<div style="background: #f1f8e9; border-left: 4px solid #8bc34a; padding: 1rem; margin-top: 1rem;">
+<p><strong>Prueba rápida:</strong> Muestra todos los productos cuyo precio sea superior a 20 €, ordenados de mayor a menor precio.</p>
+</div>
+<h2>5.2 Inserción, actualización y eliminación de datos</h2>
+<p>Estas operaciones se agrupan bajo el nombre de <strong>DML (Data Manipulation Language)</strong>.</p>
+<h3>Inserción de registros</h3>
+<pre><code>INSERT INTO productos (nombre, precio, stock)
+VALUES ('Monitor 27"', 189.99, 5);
+</code></pre>
+<h3>Actualización de registros</h3>
+<pre><code>UPDATE productos
+SET precio = precio * 0.9
+WHERE precio &gt; 100;
+</code></pre>
+<h3>Eliminación de registros</h3>
+<pre><code>DELETE FROM productos
+WHERE stock = 0;
+</code></pre>
+<p>Recuerda: si no indicas una condición <code>WHERE</code>, el comando afectará a todos los registros de la tabla.</p>
+<div style="background: #fff3e0; border-left: 4px solid #fb8c00; padding: 1rem; margin-top: 1rem;">
+<p><strong>Ejercicio guiado:</strong> Inserta tres productos nuevos, reduce un 10 % el precio de los que cuesten más de 150 €, y elimina los que tengan stock cero.</p>
+</div>
+<h2>5.3 Consultas con funciones de agregación</h2>
+<p>Las funciones de agregación permiten realizar cálculos sobre conjuntos de registros.</p>
+<ul>
+<li><code>COUNT()</code>: cuenta el número de registros.</li>
+<li><code>SUM()</code>: suma los valores de una columna.</li>
+<li><code>AVG()</code>: calcula la media.</li>
+<li><code>MIN()</code> y <code>MAX()</code>: devuelven el valor mínimo y máximo.</li>
+</ul>
+<pre><code>SELECT COUNT(*) AS total_productos,
+       AVG(precio) AS precio_medio
+FROM productos;
+</code></pre>
+<h3>Uso de GROUP BY</h3>
+<p>Permite agrupar registros según el valor de una columna:</p>
+<pre><code>SELECT categoria, COUNT(*) AS total, AVG(precio) AS media
+FROM productos
+GROUP BY categoria;
+</code></pre>
+<p>Y puedes filtrar grupos con <code>HAVING</code>:</p>
+<pre><code>SELECT categoria, AVG(precio) AS media
+FROM productos
+GROUP BY categoria
+HAVING AVG(precio) &gt; 50;
+</code></pre>
+<div style="background: #e3f2fd; border-left: 4px solid #2196f3; padding: 1rem; margin-top: 1rem;">
+<p><strong>Actividad práctica:</strong> Calcula el número total de productos, la media de precios y el stock medio por categoría.</p>
+</div>
+<h2>5.4 Subconsultas y operadores</h2>
+<p>Una <strong>subconsulta</strong> es una consulta dentro de otra. Se utiliza para obtener datos que sirven como condición o valor en la consulta principal.</p>
+<pre><code>SELECT nombre, precio
+FROM productos
+WHERE precio &gt; (
+  SELECT AVG(precio)
+  FROM productos
+);
+</code></pre>
+<p>También puedes usar operadores como <code>IN</code> o <code>BETWEEN</code>:</p>
+<pre><code>SELECT nombre
+FROM productos
+WHERE categoria IN ('Informática', 'Accesorios')
+  AND precio BETWEEN 50 AND 200;
+</code></pre>
+<div style="background: #fce4ec; border-left: 4px solid #ec407a; padding: 1rem; margin-top: 1rem;">
+<p><strong>Ejercicio propuesto:</strong> Muestra los productos cuyo precio sea superior a la media general y cuya categoría sea “Informática”.</p>
+</div>
+<h2>5.5 Actividades finales</h2>
+<ol>
+<li>Crea una tabla <code>clientes</code> con columnas: id, nombre, email, fecha_registro.</li>
+<li>Inserta al menos cinco registros.</li>
+<li>Realiza las siguientes consultas:
+<ul>
+<li>Clientes ordenados por fecha más reciente.</li>
+<li>Clientes cuyo email contiene “gmail”.</li>
+<li>Conteo total de clientes y promedio de antigüedad.</li>
+</ul>
+</li>
+</ol>
+<h2>Autoevaluación</h2>
+<ul>
+<li>¿Sé utilizar correctamente las cláusulas <code>WHERE</code>, <code>ORDER BY</code> y <code>GROUP BY</code>?</li>
+<li>¿Puedo insertar, modificar y eliminar registros de forma segura?</li>
+<li>¿Sé aplicar funciones de agregación y subconsultas simples?</li>
+</ul>
+<div style="background: #f6f8fa; border-left: 4px solid #007acc; padding: 1rem; margin-top: 1rem;">
+<p><strong>Reflexión final:</strong> ¿Por qué es importante dominar el lenguaje SQL antes de utilizar un ORM o frameworks de desarrollo web?</p>
+</div>
+<footer style="margin-top: 2rem; border-top: 1px solid #ccc; padding-top: 0.5rem;">
+<p><em>Duración estimada:</em> 2 horas · <em>Tipo de contenido:</em> Teórico–práctico · <em>Nivel:</em> Medio DAW</p>
+</footer></section></div>
+</div>
+</div>
+</article>
+<div id="packageLicense" class="cc cc-by-sa">
+<p><span>Obra publicada con</span> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Licencia Creative Commons Reconocimiento Compartir igual 4.0</a></p>
+</div>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="42_normalizacin_restricciones_y_actividades_prcticas.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="6_relaciones_y_claves_forneas.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<p id="made-with-eXe"><a href="https://exelearning.net/" target="_blank" rel="noopener"><span>Creado con eXeLearning<span> (Ventana nueva)</span></span></a></p><script type="text/javascript" src="_intef_js.js"></script></body></html>

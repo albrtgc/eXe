@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>MySQL paso a paso: fundamentos, consultas y relaciones </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="author" content="Alberto Canca" />
+<link rel="license" type="text/html" href="http://creativecommons.org/licenses/by-sa/4.0/" />
+<meta name="generator" content="eXeLearning 2.9 - exelearning.net" />
+<meta name="description" content="MySQL paso a paso: fundamentos, consultas y relaciones es un recurso de aprendizaje práctico que introduce al alumnado en el uso real de MySQL/MariaDB como sistema gestor de bases de datos relacionales. El objetivo es que el estudiante comprenda cómo se organizan los datos en tablas, cómo se consultan y cómo se relacionan entre sí para responder preguntas reales en una aplicación o servicio.
+
+El recurso comienza explicando el modelo Cliente-Servidor, mostrando cómo MySQL actúa como servidor de bases de datos, atendiendo peticiones de distintos clientes (consola SQL, aplicaciones web, interfaces gráficas, etc.). A partir de ahí se trabaja de forma guiada:
+
+Creación y estructuración de bases de datos utilizando instrucciones SQL básicas (CREATE DATABASE, CREATE TABLE).
+
+Inserción, modificación y eliminación de datos mediante sentencias DML (INSERT, UPDATE, DELETE).
+
+Consultas de selección con SELECT, incluyendo filtros, ordenación, funciones y búsquedas específicas.
+
+Relaciones entre tablas usando claves primarias y foráneas, integridad referencial y distintos tipos de JOIN.
+
+Diseño progresivo de un esquema real, aplicando normalización básica.
+
+El aprendizaje se apoya en ejemplos sencillos y cercanos, actividades paso a paso y ejercicios finales para comprobar la comprensión. Su enfoque progresivo permite que el alumnado pase de no conocer SQL a ser capaz de consultar y estructurar información real en MySQL, aplicable posteriormente en proyectos de desarrollo web, administración de sistemas o análisis de datos." />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="exe-web-site" id="exe-node-0"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">MySQL paso a paso: fundamentos, consultas y relaciones</div></header>
+<nav id="siteNav">
+<ul>
+   <li id="active"><a href="index.html" class="active daddy main-node">MySQL paso a paso: fundamentos, consultas y relaciones</a></li>
+   <li><a href="1_introduccin_docente_y_gua_del_rea.html" class="daddy">1. Introducción docente y guía del REA</a>
+   <ul class="other-section">
+      <li><a href="11_objetivos_didcticos_y_competencias.html" class="no-ch">1.1 Objetivos didácticos y competencias</a></li>
+      <li><a href="12_resultados_de_aprendizaje_y_criterios_de_evaluacin.html" class="no-ch">1.2 Resultados de aprendizaje y criterios de evaluación</a></li>
+      <li><a href="14_metodologa_y_temporalizacin.html" class="no-ch">1.4 Metodología y temporalización</a></li>
+      <li><a href="14_instrumentos_de_evaluacin_y_rbricas.html" class="no-ch">1.4 Instrumentos de evaluación y rúbricas</a></li>
+      <li><a href="15_accesibilidad_y_licencias.html" class="no-ch">1.5 Accesibilidad y licencias</a></li>
+   </ul>
+   </li>
+   <li><a href="2_bienvenida_al_entorno_mysql.html" class="daddy">2. Bienvenida al entorno MySQL</a>
+   <ul class="other-section">
+      <li><a href="21_qu_es_un_sgbd_relacional.html" class="no-ch">2.1 ¿Qué es un SGBD relacional?</a></li>
+      <li><a href="22_mysql_en_el_ecosistema_lamp.html" class="no-ch">2.2 MySQL en el ecosistema LAMP</a></li>
+      <li><a href="23_mysql_vs_mariadb_vs_postgresql.html" class="no-ch">2.3 MySQL vs MariaDB vs PostgreSQL</a></li>
+      <li><a href="24_arquitectura_servidorcliente.html" class="no-ch">2.4 Arquitectura servidor–cliente</a></li>
+      <li><a href="25_actividades_interactivas.html" class="no-ch">2.5 Actividades interactivas</a></li>
+   </ul>
+   </li>
+   <li><a href="3_instalacin_y_acceso_a_mysql.html" class="daddy">3. Instalación y acceso a MySQL</a>
+   <ul class="other-section">
+      <li><a href="31_instalacin_mediante_xampp__docker.html" class="no-ch">3.1 Instalación mediante XAMPP / Docker</a></li>
+      <li><a href="32_acceso_mediante_terminal_cli_y_gui.html" class="no-ch">3.2 Acceso mediante terminal (CLI) y GUI</a></li>
+      <li><a href="33_creacin_de_usuarios_y_gestin_de_privilegios.html" class="no-ch">3.3 Creación de usuarios y gestión de privilegios</a></li>
+      <li><a href="34_actividades_prcticas_y_autoevaluacin.html" class="no-ch">3.4 Actividades prácticas y autoevaluación</a></li>
+   </ul>
+   </li>
+   <li><a href="4_creacin_y_gestin_de_bases_de_datos.html" class="daddy">4. Creación y gestión de bases de datos</a>
+   <ul class="other-section">
+      <li><a href="41_fundamentos_y_creacin_de_bases_de_datos.html" class="no-ch">4.1 Fundamentos y creación de bases de datos</a></li>
+      <li><a href="42_normalizacin_restricciones_y_actividades_prcticas.html" class="no-ch">4.2 Normalización, restricciones y actividades prácticas</a></li>
+   </ul>
+   </li>
+   <li><a href="5_consultas_bsicas_en_mysql.html" class="no-ch">5. Consultas básicas en MySQL</a></li>
+   <li><a href="6_relaciones_y_claves_forneas.html" class="no-ch">6. Relaciones y claves foráneas</a></li>
+   <li><a href="7_evaluacin_final_y_proyecto_integrador.html" class="no-ch">7. Evaluación final y proyecto integrador</a></li>
+   <li><a href="8_autora_y_licencia.html" class="no-ch">8. Autoría y Licencia</a></li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="1_introduccin_docente_y_gua_del_rea.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">MySQL paso a paso: fundamentos, consultas y relaciones</h1></header>
+<article class="iDevice_wrapper textIdevice" id="id28">
+<div class="iDevice emphasis0" >
+<div id="ta28_155_2" class="block iDevice_content">
+<div class="exe-text"><p><span style="font-size: 1.05em;">Bienvenido/a a este </span><strong style="font-size: 1.05em;">Recurso Educativo Abierto (REA)</strong><span style="font-size: 1.05em;"> diseñado para el módulo de </span><strong style="font-size: 1.05em;">Bases de Datos</strong><span style="font-size: 1.05em;"> del ciclo formativo de </span><strong style="font-size: 1.05em;">Desarrollo de Aplicaciones Web (DAW)</strong><span style="font-size: 1.05em;">. A lo largo de este recurso aprenderás a instalar, configurar y utilizar el sistema gestor de bases de datos </span><strong style="font-size: 1.05em;">MySQL</strong><span style="font-size: 1.05em;"> desde un enfoque teórico–práctico, guiado paso a paso.</span></p>
+<section>
+<h2>Presentación</h2>
+<p>Este material te permitirá desarrollar las competencias necesarias para administrar y explotar bases de datos relacionales, diseñar esquemas coherentes, aplicar restricciones de integridad y realizar consultas SQL para la extracción y análisis de información.</p>
+<p>El REA está estructurado de forma progresiva, combinando contenidos teóricos, ejemplos prácticos, actividades interactivas y proyectos finales que fomentan el aprendizaje autónomo y el razonamiento lógico.</p>
+<h2>Estructura del REA</h2>
+<ol>
+<li><strong>Introducción docente y guía del REA</strong>: contextualización, objetivos y metodología.</li>
+<li><strong>Bienvenida al entorno MySQL</strong>: fundamentos de los SGBD y papel de MySQL en el desarrollo web.</li>
+<li><strong>Instalación y acceso a MySQL</strong>: configuración local, acceso por CLI y GUI, y gestión de usuarios.</li>
+<li><strong>Creación y gestión de bases de datos</strong>: tipos de datos, creación de tablas, restricciones y normalización.</li>
+<li><strong>Consultas básicas en MySQL</strong>: sentencias SELECT, filtrado, ordenación, DML y agregaciones.</li>
+<li><strong>Relaciones y claves foráneas</strong>: diseño relacional, integridad referencial y consultas con JOIN.</li>
+<li><strong>Evaluación final y proyecto integrador</strong>: aplicación completa de lo aprendido en un caso práctico.</li>
+<li><strong>Autoría y Licencia</strong>: datos del autor y licencia de uso.</li>
+</ol>
+<h2>Destinatarios</h2>
+<p>El REA está destinado al alumnado de segundo curso de Ciclos Formativos de Grado Superior en Informática, especialmente en el módulo de <strong>Bases de Datos</strong> del ciclo de <strong>Desarrollo de Aplicaciones Web</strong>. También puede ser útil para docentes o autodidactas interesados en iniciarse en SQL con MySQL.</p>
+<h2>Metodología</h2>
+<p>Se aplica un enfoque <strong>teórico–práctico</strong> y basado en proyectos. Cada bloque combina explicaciones breves con ejercicios guiados que el alumnado puede replicar en su propio entorno. El aprendizaje se refuerza mediante la experimentación, la reflexión y la autoevaluación.</p>
+<div style="background: #f6f8fa; border-left: 4px solid #007acc; padding: 1rem; margin-top: 1rem;">
+<p><strong>Consejo inicial:</strong> Asegúrate de tener un entorno MySQL funcional (XAMPP, Docker o instalación nativa) antes de comenzar. De esta forma podrás poner en práctica los ejemplos y actividades de cada bloque.</p>
+</div>
+<footer style="margin-top: 2rem; border-top: 1px solid #ccc; padding-top: 0.5rem;">
+<p><em>Duración total estimada:</em> 12–15 horas · <em>Tipo de contenido:</em> Teórico–práctico · <em>Nivel:</em> Ciclo Formativo de Grado Superior (DAW)</p>
+</footer></section></div>
+</div>
+</div>
+</article>
+<div id="packageLicense" class="cc cc-by-sa">
+<p><span>Obra publicada con</span> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Licencia Creative Commons Reconocimiento Compartir igual 4.0</a></p>
+</div>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="1_introduccin_docente_y_gua_del_rea.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<p id="made-with-eXe"><a href="https://exelearning.net/" target="_blank" rel="noopener"><span>Creado con eXeLearning<span> (Ventana nueva)</span></span></a></p><script type="text/javascript" src="_intef_js.js"></script></body></html>

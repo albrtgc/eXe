@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>6. Relaciones y claves foráneas | MySQL paso a paso: fundamentos, consultas y relaciones </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="author" content="Alberto Canca" />
+<link rel="license" type="text/html" href="http://creativecommons.org/licenses/by-sa/4.0/" />
+<meta name="generator" content="eXeLearning 2.9 - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="exe-web-site" id="exe-node-25"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">MySQL paso a paso: fundamentos, consultas y relaciones</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">MySQL paso a paso: fundamentos, consultas y relaciones</a></li>
+   <li><a href="1_introduccin_docente_y_gua_del_rea.html" class="daddy">1. Introducción docente y guía del REA</a>
+   <ul class="other-section">
+      <li><a href="11_objetivos_didcticos_y_competencias.html" class="no-ch">1.1 Objetivos didácticos y competencias</a></li>
+      <li><a href="12_resultados_de_aprendizaje_y_criterios_de_evaluacin.html" class="no-ch">1.2 Resultados de aprendizaje y criterios de evaluación</a></li>
+      <li><a href="14_metodologa_y_temporalizacin.html" class="no-ch">1.4 Metodología y temporalización</a></li>
+      <li><a href="14_instrumentos_de_evaluacin_y_rbricas.html" class="no-ch">1.4 Instrumentos de evaluación y rúbricas</a></li>
+      <li><a href="15_accesibilidad_y_licencias.html" class="no-ch">1.5 Accesibilidad y licencias</a></li>
+   </ul>
+   </li>
+   <li><a href="2_bienvenida_al_entorno_mysql.html" class="daddy">2. Bienvenida al entorno MySQL</a>
+   <ul class="other-section">
+      <li><a href="21_qu_es_un_sgbd_relacional.html" class="no-ch">2.1 ¿Qué es un SGBD relacional?</a></li>
+      <li><a href="22_mysql_en_el_ecosistema_lamp.html" class="no-ch">2.2 MySQL en el ecosistema LAMP</a></li>
+      <li><a href="23_mysql_vs_mariadb_vs_postgresql.html" class="no-ch">2.3 MySQL vs MariaDB vs PostgreSQL</a></li>
+      <li><a href="24_arquitectura_servidorcliente.html" class="no-ch">2.4 Arquitectura servidor–cliente</a></li>
+      <li><a href="25_actividades_interactivas.html" class="no-ch">2.5 Actividades interactivas</a></li>
+   </ul>
+   </li>
+   <li><a href="3_instalacin_y_acceso_a_mysql.html" class="daddy">3. Instalación y acceso a MySQL</a>
+   <ul class="other-section">
+      <li><a href="31_instalacin_mediante_xampp__docker.html" class="no-ch">3.1 Instalación mediante XAMPP / Docker</a></li>
+      <li><a href="32_acceso_mediante_terminal_cli_y_gui.html" class="no-ch">3.2 Acceso mediante terminal (CLI) y GUI</a></li>
+      <li><a href="33_creacin_de_usuarios_y_gestin_de_privilegios.html" class="no-ch">3.3 Creación de usuarios y gestión de privilegios</a></li>
+      <li><a href="34_actividades_prcticas_y_autoevaluacin.html" class="no-ch">3.4 Actividades prácticas y autoevaluación</a></li>
+   </ul>
+   </li>
+   <li><a href="4_creacin_y_gestin_de_bases_de_datos.html" class="daddy">4. Creación y gestión de bases de datos</a>
+   <ul class="other-section">
+      <li><a href="41_fundamentos_y_creacin_de_bases_de_datos.html" class="no-ch">4.1 Fundamentos y creación de bases de datos</a></li>
+      <li><a href="42_normalizacin_restricciones_y_actividades_prcticas.html" class="no-ch">4.2 Normalización, restricciones y actividades prácticas</a></li>
+   </ul>
+   </li>
+   <li><a href="5_consultas_bsicas_en_mysql.html" class="no-ch">5. Consultas básicas en MySQL</a></li>
+   <li id="active"><a href="6_relaciones_y_claves_forneas.html" class="active no-ch">6. Relaciones y claves foráneas</a></li>
+   <li><a href="7_evaluacin_final_y_proyecto_integrador.html" class="no-ch">7. Evaluación final y proyecto integrador</a></li>
+   <li><a href="8_autora_y_licencia.html" class="no-ch">8. Autoría y Licencia</a></li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="5_consultas_bsicas_en_mysql.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="7_evaluacin_final_y_proyecto_integrador.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">6. Relaciones y claves foráneas</h1></header>
+<article class="iDevice_wrapper textIdevice" id="id26">
+<div class="iDevice emphasis0" >
+<div id="ta26_153_2" class="block iDevice_content">
+<div class="exe-text"><p><span style="font-size: 1.05em;">En una base de datos relacional, el valor está en </span><strong style="font-size: 1.05em;">conectar</strong><span style="font-size: 1.05em;"> entidades. Las </span><strong style="font-size: 1.05em;">claves foráneas (FK)</strong><span style="font-size: 1.05em;"> preservan la </span><strong style="font-size: 1.05em;">integridad referencial</strong><span style="font-size: 1.05em;">, garantizando que los datos relacionados existan y se mantengan coherentes. En esta sección diseñarás relaciones 1:N y N:M, crearás claves foráneas con acciones </span><em style="font-size: 1.05em;">ON DELETE/UPDATE</em><span style="font-size: 1.05em;"> y practicarás consultas con </span><code>JOIN</code><span style="font-size: 1.05em;"> (INNER, LEFT, RIGHT, FULL*).</span></p>
+<section>
+<p style="font-size: 0.95em; color: #666;">*MySQL no implementa <code>FULL OUTER JOIN</code> de forma nativa; se simula con unión de LEFT y RIGHT.</p>
+<h2>Objetivos del bloque</h2>
+<ul>
+<li>Diferenciar relaciones <strong>1:N</strong> y <strong>N:M</strong> (mediante tabla puente).</li>
+<li>Definir y justificar <strong>claves foráneas</strong> con acciones <code>ON DELETE</code>/<code>ON UPDATE</code>.</li>
+<li>Realizar consultas con <strong>JOIN</strong> para recuperar información combinada.</li>
+<li>Aplicar todo lo anterior en un mini-proyecto “tienda_online”.</li>
+</ul>
+<h2>6.1 Diseño relacional: 1:N y N:M</h2>
+<h3>Relación 1:N</h3>
+<p>Una fila de la tabla <em>padre</em> puede estar asociada con muchas filas de la tabla <em>hija</em>. Ejemplo: <code>clientes</code> (1) → <code>pedidos</code> (N). La FK se coloca en la tabla hija.</p>
+<pre><code>CREATE TABLE clientes (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(60) NOT NULL,
+  email VARCHAR(120) UNIQUE
+);
+
+CREATE TABLE pedidos (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  fecha DATE NOT NULL,
+  cliente_id INT NOT NULL,
+  CONSTRAINT fk_pedidos_clientes
+    FOREIGN KEY (cliente_id) REFERENCES clientes(id)
+);
+</code></pre>
+<h3>Relación N:M (tabla puente)</h3>
+<p>Para N:M se introduce una <strong>tabla intermedia</strong> que contiene al menos las FKs de ambas tablas. Ejemplo: <code>productos</code> ↔ <code>categorias</code> mediante <code>producto_categoria</code>.</p>
+<pre><code>CREATE TABLE productos (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(80) NOT NULL,
+  precio DECIMAL(10,2) NOT NULL
+);
+
+CREATE TABLE categorias (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(60) NOT NULL UNIQUE
+);
+
+CREATE TABLE producto_categoria (
+  producto_id INT NOT NULL,
+  categoria_id INT NOT NULL,
+  PRIMARY KEY (producto_id, categoria_id),
+  CONSTRAINT fk_pc_prod FOREIGN KEY (producto_id) REFERENCES productos(id),
+  CONSTRAINT fk_pc_cat  FOREIGN KEY (categoria_id) REFERENCES categorias(id)
+);
+</code></pre>
+<h2>6.2 Claves foráneas y acciones ON DELETE / ON UPDATE</h2>
+<p>Las FKs pueden definir qué hacer cuando cambia o se borra el registro referenciado.</p>
+<ul>
+<li><code>RESTRICT</code>: impide borrar/actualizar si hay referencias (por defecto en muchos motores).</li>
+<li><code>CASCADE</code>: propaga el borrado/actualización a las filas hijas.</li>
+<li><code>SET NULL</code>: coloca <code>NULL</code> en la FK de las filas hijas.</li>
+<li><code>NO ACTION</code>: equivalente a RESTRICT en MySQL.</li>
+</ul>
+<pre><code>ALTER TABLE pedidos
+  ADD CONSTRAINT fk_pedidos_clientes
+  FOREIGN KEY (cliente_id) REFERENCES clientes(id)
+  ON DELETE RESTRICT
+  ON UPDATE CASCADE;
+</code></pre>
+<div style="background: #fff8e1; border-left: 4px solid #fbc02d; padding: 1rem; margin: 1rem 0;"><strong>Buenas prácticas:</strong>
+<ul>
+<li>Usa <code>CASCADE</code> con cautela: puede borrar grandes cascadas sin darte cuenta.</li>
+<li><code>SET NULL</code> requiere que la columna FK permita <code>NULL</code>.</li>
+<li>Asegúrate de que las tablas usen un motor que soporte FKs (p. ej., InnoDB).</li>
+<li>Indexa siempre las columnas de FK para mejorar el rendimiento de los JOIN.</li>
+</ul>
+</div>
+<h2>6.3 JOINs: INNER, LEFT, RIGHT y (simulación) FULL</h2>
+<h3>INNER JOIN</h3>
+<p>Devuelve solo las filas con coincidencia en ambas tablas.</p>
+<pre><code>SELECT p.id, p.fecha, c.nombre
+FROM pedidos p
+INNER JOIN clientes c ON c.id = p.cliente_id;
+</code></pre>
+<h3>LEFT JOIN</h3>
+<p>Devuelve todas las filas de la tabla izquierda y, cuando no hay coincidencia, valores <code>NULL</code> a la derecha.</p>
+<pre><code>-- clientes sin pedidos (detectamos NULL en el lado derecho)
+SELECT c.id, c.nombre, p.id AS id_pedido
+FROM clientes c
+LEFT JOIN pedidos p ON p.cliente_id = c.id
+WHERE p.id IS NULL;
+</code></pre>
+<h3>RIGHT JOIN</h3>
+<p>Simétrico de LEFT JOIN (suele ser menos usado si controlas el orden de las tablas).</p>
+<h3>FULL OUTER JOIN (simulación)</h3>
+<pre><code>-- Unión de LEFT y RIGHT excluyendo duplicados
+SELECT c.id, c.nombre, p.id AS id_pedido
+FROM clientes c
+LEFT JOIN pedidos p ON p.cliente_id = c.id
+UNION
+SELECT c.id, c.nombre, p.id AS id_pedido
+FROM clientes c
+RIGHT JOIN pedidos p ON p.cliente_id = c.id;
+</code></pre>
+<div style="background: #e3f2fd; border-left: 4px solid #2196f3; padding: 1rem; margin: 1rem 0;"><strong>Tip:</strong> Prefiere <code>JOIN</code> con alias de tabla (<code>c</code>, <code>p</code>) y nombra columnas en <code>SELECT</code> para legibilidad.</div>
+<h2>6.4 Mini-proyecto guiado: “tienda_online”</h2>
+<p>Crea el esquema y practica relaciones, FKs y JOINs.</p>
+<h3>Esquema</h3>
+<pre><code>CREATE DATABASE tienda_online CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE tienda_online;
+
+CREATE TABLE usuarios (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(80) NOT NULL,
+  email VARCHAR(120) NOT NULL UNIQUE,
+  fecha_registro DATE NOT NULL
+);
+
+CREATE TABLE productos (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(100) NOT NULL,
+  precio DECIMAL(10,2) NOT NULL,
+  stock INT NOT NULL DEFAULT 0
+);
+
+CREATE TABLE pedidos (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  usuario_id INT NOT NULL,
+  fecha DATETIME NOT NULL,
+  CONSTRAINT fk_pedidos_usuarios
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+    ON DELETE RESTRICT ON UPDATE CASCADE
+);
+
+CREATE TABLE lineas_pedido (
+  pedido_id INT NOT NULL,
+  producto_id INT NOT NULL,
+  cantidad INT NOT NULL CHECK (cantidad &gt; 0),
+  precio_unit DECIMAL(10,2) NOT NULL,
+  PRIMARY KEY (pedido_id, producto_id),
+  CONSTRAINT fk_lp_ped   FOREIGN KEY (pedido_id)  REFERENCES pedidos(id)   ON DELETE CASCADE,
+  CONSTRAINT fk_lp_prod  FOREIGN KEY (producto_id) REFERENCES productos(id) ON DELETE RESTRICT
+);
+</code></pre>
+<h3>Datos de ejemplo</h3>
+<pre><code>INSERT INTO usuarios (nombre, email, fecha_registro) VALUES
+('Ana', 'ana@example.com', '2024-09-01'),
+('Luis','luis@example.com','2024-09-10'),
+('Sara','sara@example.com','2024-09-15');
+
+INSERT INTO productos (nombre, precio, stock) VALUES
+('Teclado', 49.90, 20), ('Ratón', 19.90, 50), ('Monitor 24"', 149.00, 10);
+
+INSERT INTO pedidos (usuario_id, fecha) VALUES
+(1, NOW()), (1, NOW()), (2, NOW());
+
+INSERT INTO lineas_pedido (pedido_id, producto_id, cantidad, precio_unit) VALUES
+(1, 1, 1, 49.90), (1, 2, 2, 19.90),
+(2, 3, 1, 149.00),
+(3, 2, 1, 19.90);
+</code></pre>
+<h3>Consultas clave (JOIN + agregación)</h3>
+<pre><code>-- a) Pedidos con nombre de usuario
+SELECT p.id, u.nombre, p.fecha
+FROM pedidos p
+JOIN usuarios u ON u.id = p.usuario_id
+ORDER BY p.id;
+
+-- b) Importe por pedido
+SELECT lp.pedido_id,
+       SUM(lp.cantidad * lp.precio_unit) AS total_pedido
+FROM lineas_pedido lp
+GROUP BY lp.pedido_id
+ORDER BY lp.pedido_id;
+
+-- c) Top productos por ventas (unidades)
+SELECT pr.nombre, SUM(lp.cantidad) AS unidades
+FROM lineas_pedido lp
+JOIN productos pr ON pr.id = lp.producto_id
+GROUP BY pr.id, pr.nombre
+ORDER BY unidades DESC;
+
+-- d) Usuarios sin pedidos (LEFT JOIN + NULL)
+SELECT u.id, u.nombre
+FROM usuarios u
+LEFT JOIN pedidos p ON p.usuario_id = u.id
+WHERE p.id IS NULL;
+</code></pre>
+<div style="background: #f6f8fa; border-left: 4px solid #007acc; padding: 1rem; margin: 1rem 0;"><strong>Extensión opcional:</strong> añade tabla <code>categorias</code> y <code>producto_categoria</code> (N:M) y consulta: “productos con sus categorías” y “categorías sin productos”.</div>
+<h2>6.5 Actividades y evaluación</h2>
+<ol>
+<li><strong>Modelado:</strong> Dibuja (en papel o herramienta) el diagrama E/R de “tienda_online” con cardinalidades y claves.</li>
+<li><strong>Integridad:</strong> Cambia la acción de <code>ON DELETE</code> en <code>lineas_pedido</code> y justifica el impacto.</li>
+<li><strong>Consultas:</strong> Obtén (i) pedidos con total &gt; 100 €, (ii) productos sin vender, (iii) ingresos por día/mes.</li>
+<li><strong>Rendimiento:</strong> Crea índices en columnas FK y compara tiempos en consultas con y sin índice.</li>
+</ol>
+<h3>Autoevaluación (escala 1–5)</h3>
+<ul>
+<li>Distingo correctamente 1:N y N:M y sé cuándo usar tabla puente.</li>
+<li>Defino FKs y acciones ON DELETE/UPDATE adecuadas al caso de uso.</li>
+<li>Escribo consultas INNER/LEFT JOIN con soltura y comprendo sus resultados.</li>
+<li>Calculo totales por pedido y rankings de ventas con agregaciones.</li>
+</ul>
+<div style="background: #e8f5e9; border-left: 4px solid #43a047; padding: 1rem; margin-top: 1rem;"><strong>Reflexión final:</strong> ¿En qué situaciones reales te conviene <code>SET NULL</code> frente a <code>CASCADE</code>? Pon un ejemplo concreto.</div>
+<footer style="margin-top: 2rem; border-top: 1px solid #ccc; padding-top: 0.5rem;">
+<p><em>Duración estimada:</em> 2–3 horas · <em>Tipo de contenido:</em> Diseño relacional y consultas · <em>Nivel:</em> Medio DAW</p>
+</footer></section></div>
+</div>
+</div>
+</article>
+<div id="packageLicense" class="cc cc-by-sa">
+<p><span>Obra publicada con</span> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Licencia Creative Commons Reconocimiento Compartir igual 4.0</a></p>
+</div>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="5_consultas_bsicas_en_mysql.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="7_evaluacin_final_y_proyecto_integrador.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<p id="made-with-eXe"><a href="https://exelearning.net/" target="_blank" rel="noopener"><span>Creado con eXeLearning<span> (Ventana nueva)</span></span></a></p><script type="text/javascript" src="_intef_js.js"></script></body></html>

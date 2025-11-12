@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>7. Evaluación final y proyecto integrador | MySQL paso a paso: fundamentos, consultas y relaciones </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="author" content="Alberto Canca" />
+<link rel="license" type="text/html" href="http://creativecommons.org/licenses/by-sa/4.0/" />
+<meta name="generator" content="eXeLearning 2.9 - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="exe-web-site" id="exe-node-26"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">MySQL paso a paso: fundamentos, consultas y relaciones</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">MySQL paso a paso: fundamentos, consultas y relaciones</a></li>
+   <li><a href="1_introduccin_docente_y_gua_del_rea.html" class="daddy">1. Introducción docente y guía del REA</a>
+   <ul class="other-section">
+      <li><a href="11_objetivos_didcticos_y_competencias.html" class="no-ch">1.1 Objetivos didácticos y competencias</a></li>
+      <li><a href="12_resultados_de_aprendizaje_y_criterios_de_evaluacin.html" class="no-ch">1.2 Resultados de aprendizaje y criterios de evaluación</a></li>
+      <li><a href="14_metodologa_y_temporalizacin.html" class="no-ch">1.4 Metodología y temporalización</a></li>
+      <li><a href="14_instrumentos_de_evaluacin_y_rbricas.html" class="no-ch">1.4 Instrumentos de evaluación y rúbricas</a></li>
+      <li><a href="15_accesibilidad_y_licencias.html" class="no-ch">1.5 Accesibilidad y licencias</a></li>
+   </ul>
+   </li>
+   <li><a href="2_bienvenida_al_entorno_mysql.html" class="daddy">2. Bienvenida al entorno MySQL</a>
+   <ul class="other-section">
+      <li><a href="21_qu_es_un_sgbd_relacional.html" class="no-ch">2.1 ¿Qué es un SGBD relacional?</a></li>
+      <li><a href="22_mysql_en_el_ecosistema_lamp.html" class="no-ch">2.2 MySQL en el ecosistema LAMP</a></li>
+      <li><a href="23_mysql_vs_mariadb_vs_postgresql.html" class="no-ch">2.3 MySQL vs MariaDB vs PostgreSQL</a></li>
+      <li><a href="24_arquitectura_servidorcliente.html" class="no-ch">2.4 Arquitectura servidor–cliente</a></li>
+      <li><a href="25_actividades_interactivas.html" class="no-ch">2.5 Actividades interactivas</a></li>
+   </ul>
+   </li>
+   <li><a href="3_instalacin_y_acceso_a_mysql.html" class="daddy">3. Instalación y acceso a MySQL</a>
+   <ul class="other-section">
+      <li><a href="31_instalacin_mediante_xampp__docker.html" class="no-ch">3.1 Instalación mediante XAMPP / Docker</a></li>
+      <li><a href="32_acceso_mediante_terminal_cli_y_gui.html" class="no-ch">3.2 Acceso mediante terminal (CLI) y GUI</a></li>
+      <li><a href="33_creacin_de_usuarios_y_gestin_de_privilegios.html" class="no-ch">3.3 Creación de usuarios y gestión de privilegios</a></li>
+      <li><a href="34_actividades_prcticas_y_autoevaluacin.html" class="no-ch">3.4 Actividades prácticas y autoevaluación</a></li>
+   </ul>
+   </li>
+   <li><a href="4_creacin_y_gestin_de_bases_de_datos.html" class="daddy">4. Creación y gestión de bases de datos</a>
+   <ul class="other-section">
+      <li><a href="41_fundamentos_y_creacin_de_bases_de_datos.html" class="no-ch">4.1 Fundamentos y creación de bases de datos</a></li>
+      <li><a href="42_normalizacin_restricciones_y_actividades_prcticas.html" class="no-ch">4.2 Normalización, restricciones y actividades prácticas</a></li>
+   </ul>
+   </li>
+   <li><a href="5_consultas_bsicas_en_mysql.html" class="no-ch">5. Consultas básicas en MySQL</a></li>
+   <li><a href="6_relaciones_y_claves_forneas.html" class="no-ch">6. Relaciones y claves foráneas</a></li>
+   <li id="active"><a href="7_evaluacin_final_y_proyecto_integrador.html" class="active no-ch">7. Evaluación final y proyecto integrador</a></li>
+   <li><a href="8_autora_y_licencia.html" class="no-ch">8. Autoría y Licencia</a></li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="6_relaciones_y_claves_forneas.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="8_autora_y_licencia.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">7. Evaluación final y proyecto integrador</h1></header>
+<article class="iDevice_wrapper textIdevice" id="id27">
+<div class="iDevice emphasis0" >
+<div id="ta27_154_2" class="block iDevice_content">
+<div class="exe-text"><p><span style="font-size: 1.05em;">Esta sección verifica el logro de los objetivos del REA mediante un </span><strong style="font-size: 1.05em;">cuestionario sumativo</strong><span style="font-size: 1.05em;">, un </span><strong style="font-size: 1.05em;">proyecto práctico integrador</strong><span style="font-size: 1.05em;"> y una </span><strong style="font-size: 1.05em;">autoevaluación</strong><span style="font-size: 1.05em;">. El alumnado aplicará instalación, modelado relacional, integridad referencial y consultas SQL (DML, JOINs, agregaciones y subconsultas).</span></p>
+<section>
+<h2>Objetivos del bloque</h2>
+<ul>
+<li>Comprobar el dominio de MySQL en un caso práctico realista.</li>
+<li>Diseñar e implementar un esquema relacional con integridad y datos de ejemplo.</li>
+<li>Redactar consultas SQL que resuelvan necesidades típicas de explotación.</li>
+<li>Reflexionar sobre el propio proceso de aprendizaje y áreas de mejora.</li>
+</ul>
+<h2>7.1 Cuestionario sumativo (ejemplos)</h2>
+<p><em>Sugerencia eXe:</em> crea estas preguntas en iDevices de tipo test/verdadero-falso o importa GIFT a Moodle.</p>
+<ol>
+<li><strong>Selección de BD:</strong> ¿Qué instrucción establece la BD activa? <br />a) OPEN DB b) SET DB c) <strong>USE</strong> d) SELECT DATABASE</li>
+<li><strong>Integridad:</strong> La clave foránea garantiza… <br />a) Rendimiento b) <strong>Integridad referencial</strong> c) Redundancia d) Copia de seguridad</li>
+<li><strong>Agregación:</strong> Media de precio por categoría:
+<pre><code>SELECT categoria, AVG(precio) FROM productos GROUP BY categoria;</code></pre>
+</li>
+<li><strong>JOIN:</strong> Señala la opción correcta para obtener pedidos con nombre del cliente:
+<pre><code>SELECT p.id, c.nombre FROM pedidos p JOIN clientes c ON c.id = p.cliente_id;</code></pre>
+</li>
+<li><strong>Subconsulta:</strong> Productos con precio mayor que la media:
+<pre><code>SELECT nombre FROM productos WHERE precio &gt; (SELECT AVG(precio) FROM productos);</code></pre>
+</li>
+</ol>
+<h2>7.2 Proyecto práctico integrador: <em>tienda_curso</em></h2>
+<p>Implementa una base de datos de comercio electrónico simplificada. Entrega scripts SQL y evidencias.</p>
+<h3>7.2.1 Requisitos de diseño</h3>
+<ul>
+<li>BD: <code>tienda_curso</code> (charset <code>utf8mb4</code>, colación recomendada <code>utf8mb4_general_ci</code> o <code>utf8mb4_0900_ai_ci</code> si procede).</li>
+<li>Tablas mínimas:
+<ul>
+<li><code>usuarios(id PK, nombre, email UNIQUE, fecha_registro DATE)</code></li>
+<li><code>productos(id PK, nombre, precio DECIMAL, stock INT)</code></li>
+<li><code>pedidos(id PK, usuario_id FK, fecha DATETIME)</code></li>
+<li><code>lineas_pedido(pedido_id FK, producto_id FK, cantidad &gt; 0, precio_unit DECIMAL, PK compuesta)</code></li>
+<li><em>Opcional +1:</em> <code>categorias</code> y <code>producto_categoria</code> (N:M)</li>
+</ul>
+</li>
+<li>Restricciones: PK, <code>NOT NULL</code>, <code>CHECK(cantidad &gt; 0)</code>, FK con acciones justificadas (<code>RESTRICT</code>, <code>CASCADE</code>, <code>SET NULL</code>).</li>
+<li>Índices: en todas las FKs y en columnas de búsqueda frecuente (p. ej., <code>email</code>).</li>
+</ul>
+<h3>7.2.2 Datos de ejemplo</h3>
+<p>Inserta un mínimo de: 5 usuarios, 10 productos, 8 pedidos y sus líneas. Debe haber al menos 1 usuario sin pedidos y 1 producto sin vender.</p>
+<h3>7.2.3 Consultas obligatorias</h3>
+<ol>
+<li><strong>Pedidos con cliente:</strong> id pedido, nombre cliente y fecha (JOIN).</li>
+<li><strong>Importe por pedido:</strong> suma de <code>cantidad * precio_unit</code> (GROUP BY).</li>
+<li><strong>Top ventas:</strong> productos ordenados por unidades vendidas (JOIN + SUM + ORDER).</li>
+<li><strong>Clientes sin pedidos:</strong> LEFT JOIN + <code>IS NULL</code>.</li>
+<li><strong>Productos sobre la media:</strong> precio &gt; media global (subconsulta).</li>
+<li><strong>Ingresos por mes:</strong> total de ventas agrupado por <code>DATE_FORMAT(fecha, '%Y-%m')</code>.</li>
+</ol>
+<h3>7.2.4 Entregables</h3>
+<ul>
+<li><code>01_creacion_esquema.sql</code> (CREATE DATABASE/TABLE + restricciones + índices)</li>
+<li><code>02_datos_demo.sql</code> (INSERTs)</li>
+<li><code>03_consultas_obligatorias.sql</code> (comentadas)</li>
+<li>Capturas: evidencia de estructura, FKs y resultados de consultas.</li>
+<li>README.md: decisiones de diseño y justificación de ON DELETE/UPDATE.</li>
+</ul>
+<h2>7.3 Rúbrica de evaluación</h2>
+<table border="1" cellpadding="6" cellspacing="0">
+<thead>
+<tr>
+<th>Criterio</th>
+<th>Excelente (9–10)</th>
+<th>Notable (7–8)</th>
+<th>Adecuado (5–6)</th>
+<th>Insuficiente (&lt;5)</th>
+<th>Peso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Estructura y modelado</td>
+<td>Esquema coherente, 3FN, sin redundancias</td>
+<td>Alguna mejora menor posible</td>
+<td>Redundancias leves</td>
+<td>Modelo incoherente</td>
+<td>30%</td>
+</tr>
+<tr>
+<td>Integridad y restricciones</td>
+<td>PK/FK/UNIQUE/CHECK correctos, ON DELETE/UPDATE bien elegidos</td>
+<td>Pequeños ajustes</td>
+<td>Faltan algunas restricciones</td>
+<td>Integridad deficiente</td>
+<td>30%</td>
+</tr>
+<tr>
+<td>Consultas SQL</td>
+<td>JOIN/AGG/Subconsultas correctas y eficientes</td>
+<td>Detalles menores</td>
+<td>Errores puntuales</td>
+<td>Errores graves</td>
+<td>30%</td>
+</tr>
+<tr>
+<td>Presentación y evidencias</td>
+<td>Scripts limpios y capturas claras</td>
+<td>Casi completo</td>
+<td>Faltan evidencias</td>
+<td>Desorganizado</td>
+<td>10%</td>
+</tr>
+</tbody>
+</table>
+<h2>7.4 Autoevaluación (escala 1–5)</h2>
+<ul>
+<li>He creado un esquema en 3FN con restricciones adecuadas.</li>
+<li>Comprendo y justifico mis elecciones de ON DELETE/UPDATE.</li>
+<li>Domino SELECT con JOIN y agregaciones para resolver métricas.</li>
+<li>Uso subconsultas cuando simplifican la solución.</li>
+<li>Mantengo scripts ordenados y reproducibles.</li>
+</ul>
+<h2>7.5 Criterios de calificación y entrega</h2>
+<ul>
+<li><strong>Puntuación:</strong> Test (20%) + Proyecto (70%) + Autoevaluación (10%).</li>
+<li><strong>Formato de entrega:</strong> ZIP con <em>01_creacion_esquema.sql</em>, <em>02_datos_demo.sql</em>, <em>03_consultas_obligatorias.sql</em>, capturas y README.</li>
+<li><strong>Entrega:</strong> en Moodle → Tarea “Proyecto integrador MySQL”.</li>
+<li><strong>Originalidad:</strong> se penaliza el plagio. Justifica tus decisiones en el README.</li>
+</ul>
+<div style="background: #f6f8fa; border-left: 4px solid #007acc; padding: 1rem; margin-top: 1rem;">
+<p><strong>Consejo:</strong> Prueba los scripts en un entorno limpio (BD vacía) antes de entregar. Incluye <code>DROP DATABASE IF EXISTS</code> al inicio para facilitar la corrección.</p>
+</div>
+<footer style="margin-top: 2rem; border-top: 1px solid #ccc; padding-top: 0.5rem;">
+<p><em>Duración estimada:</em> 2–3 horas · <em>Tipo de contenido:</em> Evaluación sumativa · <em>Nivel:</em> Medio DAW</p>
+</footer></section></div>
+</div>
+</div>
+</article>
+<div id="packageLicense" class="cc cc-by-sa">
+<p><span>Obra publicada con</span> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Licencia Creative Commons Reconocimiento Compartir igual 4.0</a></p>
+</div>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="6_relaciones_y_claves_forneas.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="8_autora_y_licencia.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<p id="made-with-eXe"><a href="https://exelearning.net/" target="_blank" rel="noopener"><span>Creado con eXeLearning<span> (Ventana nueva)</span></span></a></p><script type="text/javascript" src="_intef_js.js"></script></body></html>

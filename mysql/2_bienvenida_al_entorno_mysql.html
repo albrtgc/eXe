@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>2. Bienvenida al entorno MySQL | MySQL paso a paso: fundamentos, consultas y relaciones </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="author" content="Alberto Canca" />
+<link rel="license" type="text/html" href="http://creativecommons.org/licenses/by-sa/4.0/" />
+<meta name="generator" content="eXeLearning 2.9 - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="exe-web-site" id="exe-node-8"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">MySQL paso a paso: fundamentos, consultas y relaciones</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">MySQL paso a paso: fundamentos, consultas y relaciones</a></li>
+   <li><a href="1_introduccin_docente_y_gua_del_rea.html" class="daddy">1. Introducción docente y guía del REA</a>
+   <ul class="other-section">
+      <li><a href="11_objetivos_didcticos_y_competencias.html" class="no-ch">1.1 Objetivos didácticos y competencias</a></li>
+      <li><a href="12_resultados_de_aprendizaje_y_criterios_de_evaluacin.html" class="no-ch">1.2 Resultados de aprendizaje y criterios de evaluación</a></li>
+      <li><a href="14_metodologa_y_temporalizacin.html" class="no-ch">1.4 Metodología y temporalización</a></li>
+      <li><a href="14_instrumentos_de_evaluacin_y_rbricas.html" class="no-ch">1.4 Instrumentos de evaluación y rúbricas</a></li>
+      <li><a href="15_accesibilidad_y_licencias.html" class="no-ch">1.5 Accesibilidad y licencias</a></li>
+   </ul>
+   </li>
+   <li id="active"><a href="2_bienvenida_al_entorno_mysql.html" class="active daddy">2. Bienvenida al entorno MySQL</a>
+   <ul>
+      <li><a href="21_qu_es_un_sgbd_relacional.html" class="no-ch">2.1 ¿Qué es un SGBD relacional?</a></li>
+      <li><a href="22_mysql_en_el_ecosistema_lamp.html" class="no-ch">2.2 MySQL en el ecosistema LAMP</a></li>
+      <li><a href="23_mysql_vs_mariadb_vs_postgresql.html" class="no-ch">2.3 MySQL vs MariaDB vs PostgreSQL</a></li>
+      <li><a href="24_arquitectura_servidorcliente.html" class="no-ch">2.4 Arquitectura servidor–cliente</a></li>
+      <li><a href="25_actividades_interactivas.html" class="no-ch">2.5 Actividades interactivas</a></li>
+   </ul>
+   </li>
+   <li><a href="3_instalacin_y_acceso_a_mysql.html" class="daddy">3. Instalación y acceso a MySQL</a>
+   <ul class="other-section">
+      <li><a href="31_instalacin_mediante_xampp__docker.html" class="no-ch">3.1 Instalación mediante XAMPP / Docker</a></li>
+      <li><a href="32_acceso_mediante_terminal_cli_y_gui.html" class="no-ch">3.2 Acceso mediante terminal (CLI) y GUI</a></li>
+      <li><a href="33_creacin_de_usuarios_y_gestin_de_privilegios.html" class="no-ch">3.3 Creación de usuarios y gestión de privilegios</a></li>
+      <li><a href="34_actividades_prcticas_y_autoevaluacin.html" class="no-ch">3.4 Actividades prácticas y autoevaluación</a></li>
+   </ul>
+   </li>
+   <li><a href="4_creacin_y_gestin_de_bases_de_datos.html" class="daddy">4. Creación y gestión de bases de datos</a>
+   <ul class="other-section">
+      <li><a href="41_fundamentos_y_creacin_de_bases_de_datos.html" class="no-ch">4.1 Fundamentos y creación de bases de datos</a></li>
+      <li><a href="42_normalizacin_restricciones_y_actividades_prcticas.html" class="no-ch">4.2 Normalización, restricciones y actividades prácticas</a></li>
+   </ul>
+   </li>
+   <li><a href="5_consultas_bsicas_en_mysql.html" class="no-ch">5. Consultas básicas en MySQL</a></li>
+   <li><a href="6_relaciones_y_claves_forneas.html" class="no-ch">6. Relaciones y claves foráneas</a></li>
+   <li><a href="7_evaluacin_final_y_proyecto_integrador.html" class="no-ch">7. Evaluación final y proyecto integrador</a></li>
+   <li><a href="8_autora_y_licencia.html" class="no-ch">8. Autoría y Licencia</a></li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="15_accesibilidad_y_licencias.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="21_qu_es_un_sgbd_relacional.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">2. Bienvenida al entorno MySQL</h1></header>
+<article class="iDevice_wrapper textIdevice" id="id13">
+<div class="iDevice emphasis0" >
+<div id="ta13_140_2" class="block iDevice_content">
+<div class="exe-text"><p></p>
+<section>
+<h1></h1>
+<p>En esta segunda sección del REA <em>“MySQL paso a paso: fundamentos, consultas y relaciones”</em>, el alumnado se introduce en el entorno del sistema gestor de bases de datos <strong>MySQL</strong>. Este bloque proporciona una base conceptual sólida para comprender qué es un SGBD relacional, cómo se integra MySQL en el ecosistema de desarrollo web y de qué manera se estructura internamente.</p>
+<p>Antes de comenzar a instalar y practicar, es importante conocer <strong>por qué MySQL es tan utilizado</strong> y cuáles son sus componentes esenciales. Aquí aprenderás las diferencias entre MySQL, MariaDB y PostgreSQL, así como la forma en que se comunican los clientes con el servidor de bases de datos mediante el modelo <strong>cliente–servidor</strong>.</p>
+<h2>Objetivos del bloque</h2>
+<ul>
+<li>Comprender el papel de MySQL dentro del ecosistema de desarrollo web.</li>
+<li>Distinguir las características de los principales sistemas gestores de bases de datos.</li>
+<li>Reconocer la arquitectura servidor–cliente y los elementos que la componen.</li>
+<li>Familiarizarse con la terminología básica: tablas, registros, claves, relaciones y consultas.</li>
+</ul>
+<h2>Contenidos que se desarrollan</h2>
+<ol>
+<li><strong>2.1 ¿Qué es un SGBD relacional?</strong>: fundamentos de la gestión de datos estructurados.</li>
+<li><strong>2.2 MySQL en el ecosistema LAMP</strong>: relación entre Linux, Apache, MySQL y PHP.</li>
+<li><strong>2.3 MySQL vs MariaDB vs PostgreSQL</strong>: comparación entre sistemas gestores.</li>
+<li><strong>2.4 Arquitectura servidor–cliente</strong>: estructura interna y comunicación entre componentes.</li>
+<li><strong>2.5 Actividades interactivas</strong>: cuestionarios, emparejamientos y reflexiones guiadas.</li>
+</ol>
+<h2>Metodología</h2>
+<p>La sección combina <strong>contenidos teóricos breves</strong> con <strong>actividades interactivas</strong> que promueven la comprensión de los conceptos básicos de MySQL. Se recomienda dedicar aproximadamente <strong>1,5 horas</strong> a este bloque, asegurando que el alumnado asimile la terminología y el funcionamiento general antes de pasar a la instalación.</p>
+<div style="background: #f6f8fa; border-left: 4px solid #007acc; padding: 1rem; margin-top: 1rem;">
+<p><strong>Actividad inicial de motivación:</strong> Piensa en una aplicación web que utilices a diario (por ejemplo, un comercio electrónico o una red social). ¿Qué tipo de datos crees que almacena en su base de datos MySQL?</p>
+</div>
+<footer style="margin-top: 2rem; border-top: 1px solid #ccc; padding-top: 0.5rem;">
+<p><em>Duración estimada:</em> 1,5 horas · <em>Tipo de contenido:</em> Teórico-introductorio · <em>Nivel:</em> Inicial DAW</p>
+</footer></section></div>
+</div>
+</div>
+</article>
+<div id="packageLicense" class="cc cc-by-sa">
+<p><span>Obra publicada con</span> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Licencia Creative Commons Reconocimiento Compartir igual 4.0</a></p>
+</div>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="15_accesibilidad_y_licencias.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="21_qu_es_un_sgbd_relacional.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<p id="made-with-eXe"><a href="https://exelearning.net/" target="_blank" rel="noopener"><span>Creado con eXeLearning<span> (Ventana nueva)</span></span></a></p><script type="text/javascript" src="_intef_js.js"></script></body></html>
